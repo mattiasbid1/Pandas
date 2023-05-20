@@ -32,13 +32,23 @@ import pandas
 # monday = data[data.day == "Monday"]
 # monday_temp = monday.temp * 9 / 5 + 32
 # print(monday_temp)
+#
+# data_dict = {
+#     "students": ["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65],
+# }
+#
+# data = pandas.DataFrame(data_dict)
+#
+# print(data)
+# data.to_csv("new_data.csv")
 
-data_dict = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65],
-}
+# Primary ..
 
-data = pandas.DataFrame(data_dict)
+data = pandas.read_csv("Squirrel_Data.csv")
 
-print(data)
-data.to_csv("new_data.csv")
+fur_data = data["Primary Fur Color"].value_counts().reset_index()
+fur_data.columns = ["Fur color", "Count"]
+print(fur_data)
+fur_data.to_csv("squirrel_count.csv")
+
